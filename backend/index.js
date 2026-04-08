@@ -57,7 +57,7 @@ const startServer = async () => {
       credentials: corsOptions.credentials,
     });
     server.listen(PORT, () => {
-      console.log(`Server listen at port ${PORT}`);
+      console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
     console.error("Failed to start server:", error.message);

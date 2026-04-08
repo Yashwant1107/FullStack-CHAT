@@ -19,7 +19,6 @@ Do **not** deploy the backend to Vercel serverless if you want `socket.io` to st
 
 ### Backend environment variables
 
-- `PORT=8080`
 - `MONGO_URI=...`
 - `JWT_SECRET=...`
 - `CLIENT_URL=https://your-frontend-domain.com`
@@ -27,6 +26,9 @@ Do **not** deploy the backend to Vercel serverless if you want `socket.io` to st
 If you need multiple frontend domains, use:
 
 - `CLIENT_URLS=https://your-frontend-domain.com,https://www.your-frontend-domain.com`
+
+For Render, do not add a fixed `PORT` environment variable. Render injects `PORT` dynamically, and this backend already listens on `process.env.PORT || 5000`.
+Set `MONGO_URI` to your hosted MongoDB connection string, such as MongoDB Atlas. Do not use `mongodb://localhost:27017/...` on Render, because Render cannot reach your local machine.
 
 ### MongoDB Atlas checklist
 
