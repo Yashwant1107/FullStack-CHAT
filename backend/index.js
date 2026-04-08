@@ -16,12 +16,14 @@ app.use(cookieParser());
 app.set("trust proxy", 1);
 
 const PORT = process.env.PORT || 5000;
+const normalizeOrigin = (origin) => origin.replace(/\/+$/, "");
 const allowedOrigins = (process.env.CLIENT_URLS || process.env.CLIENT_URL || "http://localhost:3000")
   .split(",")
   .map((origin) => origin.trim())
+  .map((origin) => normalizeOrigin(origin))
   .filter(Boolean);
 
-const isAllowedOrigin = (origin) => !origin || allowedOrigins.includes(origin);
+const isAllowedOrigin = (origin) => !origin || allowedOrigins.includes(normalizeOrigin(origin));
 
 // middleware
 app.use(express.urlencoded({ extended: true }));
