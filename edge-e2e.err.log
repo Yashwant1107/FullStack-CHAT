@@ -1,0 +1,2 @@
+[0405/225521.204:ERROR:third_party\crashpad\crashpad\client\settings.cc:736] Settings version is not 7
+[0405/225521.418:ERROR:chrome\app\chrome_main.cc:285] Multiple targets are not supported in headless mode.
